@@ -378,7 +378,7 @@
             _userAgentLockToken = lockToken;
             [CDVUserAgentUtil setUserAgent:self.userAgent lockToken:lockToken];
             if (!loadErr) {
-                NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+                NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20.0];
                 [self.webView loadRequest:appReq];
             } else {
                 NSString* html = [NSString stringWithFormat:@"<html><body> %@ </body></html>", loadErr];
